@@ -1,0 +1,288 @@
+COOP SAHAYAK
+MINISTRY OF COOPERATION – SCHEMES & SERVICES KNOWLEDGE
+Source authority: Ministry of Cooperation, Government of India
+Primary source: https://www.cooperation.gov.in/en/pacs-related-schemes
+Prepared for RAG ingestion.
+
+IMPORTANT:
+- This file is a source-grounded knowledge summary.
+- Do not infer eligibility, subsidy amounts, deadlines, documents, or application procedures unless explicitly stated here.
+- If a user asks for details not present in this file or the other official documents in the knowledge base, the chatbot should say that the information is not available in the provided documents and advise verification from the latest official source.
+
+============================================================
+1. COMPUTERIZATION OF PACS
+============================================================
+
+Official source:
+https://www.cooperation.gov.in/en/computerization-pacs-1
+
+The Government of India approved the Centrally Sponsored Project for Computerisation of Primary Agricultural Credit Societies (PACS) for five years from 2022-23 to 2026-27.
+
+The Ministry page states that the project targets functional PACS and aims to bring them onto a common ERP-based software platform, with linkage to NABARD through State Cooperative Banks (StCBs) and District Central Cooperative Banks (DCCBs).
+
+Objectives include:
+- Increasing the efficiency of PACS operations.
+- Speedy disbursal of loans.
+- Lowering transaction costs.
+- Reducing imbalances in payments.
+- Seamless accounting with DCCBs and StCBs.
+- Increasing transparency.
+
+Farmer/member-facing meaning:
+Computerisation is intended to make PACS operations more efficient and improve service delivery and financial inclusion.
+
+============================================================
+2. FORMATION & PROMOTION OF FPOs IN COOPERATIVE SECTOR
+============================================================
+
+Official source:
+https://www.cooperation.gov.in/en/formation-promotion-fpos-cooperative-sector
+
+The Ministry lists Formation & Promotion of Farmer Producer Organisations (FPOs) in the Cooperative Sector as a PACS-related initiative.
+
+The Ministry page records an order dated 01.05.2023 relating to allocation of 1100 additional FPOs to NCDC.
+
+A farmer asking about FPOs through cooperatives can therefore be informed that formation and promotion of FPOs in the cooperative sector is an initiative of the Ministry of Cooperation.
+
+Specific individual eligibility, documents, application procedure, financial assistance amount, or deadline are NOT specified in this source.
+
+============================================================
+3. JAN AUSHADHI KENDRAS BY PACS
+============================================================
+
+Official source:
+https://www.cooperation.gov.in/en/jan-aushadhi-kendras-pacs
+
+The Ministry lists Jan Aushadhi Kendras by PACS as a PACS-related initiative.
+
+The Ministry's initiatives page states that the Department of Pharmaceuticals has given eligibility to PACS to open Jan Aushadhi Kendras and that eligible PACS may be encouraged by the State to apply.
+
+Purpose:
+- Improve access to generic medicines at the rural level.
+- Enable eligible PACS to diversify their activities.
+
+Specific individual application requirements for a particular PACS are not specified in this source.
+
+============================================================
+4. PACS AS COMMON SERVICE CENTRES (CSC)
+============================================================
+
+Official source:
+https://www.cooperation.gov.in/en/pacs-function-common-service-centres-csc
+
+A Memorandum of Understanding was signed between the Ministry of Cooperation, Ministry of Electronics & Information Technology, NABARD and CSC-SPV to enable PACS to function as Common Service Centres.
+
+An official Ministry/Parliament document states that PACS functioning as CSCs can deliver more than 300 e-services, including:
+- Banking services
+- Insurance services
+- Aadhaar enrolment/updation
+- Health services
+- Agricultural services
+- Other citizen-centric government services
+
+The same official source lists examples including:
+- Ayushman Bharat Yojana
+- PM Kisan Maandhan Yojana
+- PM Fasal Bima Yojana
+- PM Kisan Credit Card
+- E-Shram registrations
+- PM Kisan Samman Nidhi
+
+Farmer/member-facing meaning:
+A participating PACS may provide access to multiple government and citizen services locally.
+
+Official Parliament source:
+https://www.cooperation.gov.in/sites/default/files/2024-02/USQ%20528%20English.pdf
+
+Do not assume that every PACS provides every listed service. Availability can depend on the PACS and implementation status.
+
+============================================================
+5. PACS MADE ELIGIBLE FOR LPG DISTRIBUTORSHIP
+============================================================
+
+Official Ministry source:
+https://www.cooperation.gov.in/en/pacs-related-schemes
+
+The Ministry lists making PACS eligible for LPG distributorship as a PACS-related initiative.
+
+The Ministry's Annual Report states that the Ministry of Petroleum & Natural Gas amended its rules to make PACS eligible for LPG distributorship and issued guidelines for obtaining LPG distributorship applications by PACS.
+
+Purpose:
+- Diversify PACS economic activities.
+- Create additional employment opportunities in rural areas.
+
+This is a PACS/cooperative opportunity, not a general individual-farmer LPG subsidy.
+
+============================================================
+6. PRIORITY FOR PACS IN PETROL/DIESEL DEALERSHIPS
+============================================================
+
+Official Ministry source:
+https://www.cooperation.gov.in/en/pacs-related-schemes
+
+The Ministry lists priority for PACS in petrol/diesel dealership as a PACS-related initiative.
+
+An official Ministry document states that PACS were included in Combined Category 2 (CC2) for allotment of retail petrol/diesel outlets.
+
+Purpose:
+- Expand PACS business activities.
+- Strengthen PACS financially and improve sustainability.
+
+This information concerns PACS/cooperative societies, not an automatic entitlement for an individual farmer.
+
+============================================================
+7. WORLD'S LARGEST GRAIN STORAGE PLAN IN COOPERATIVE SECTOR
+============================================================
+
+Official source:
+https://www.cooperation.gov.in/en/worlds-largest-grain-storage-plan-cooperative-sector-0
+
+The Government approved the World's Largest Grain Storage Plan in the Cooperative Sector on 31.05.2023.
+
+The plan creates decentralised agricultural infrastructure at PACS level, including:
+- Warehouses/godowns
+- Custom Hiring Centres
+- Processing units
+- Procurement centres
+- Fair Price Shops
+- Common processing facilities
+
+Expected benefits described by the Ministry include:
+- Reducing food-grain wastage.
+- Strengthening food security.
+- Giving farmers storage options.
+- Helping farmers avoid distress sales.
+- Supporting better price realisation.
+- Reducing transportation costs.
+- Diversifying PACS activities.
+
+The Ministry states that implementation uses convergence with existing Government schemes and focuses on selected viable PACS.
+
+Official SOP/source:
+https://www.cooperation.gov.in/sites/default/files/2025-08/WLGSP%20English%20Margdarshika%20SOP.pdf
+
+Important:
+This is primarily an infrastructure/PACS-level initiative. Do not tell an individual farmer that they can directly apply for a personal warehouse subsidy unless an official source specifically supports that claim.
+
+============================================================
+8. ESTABLISHMENT OF 2 LAKH NEW MULTIPURPOSE PACS / DAIRY / FISHERY COOPERATIVES
+============================================================
+
+Official source:
+https://www.cooperation.gov.in/en/strengthening-cooperative-movement-country-establishing-2-lakh-new-multipurpose-pacs-dairy-fishery
+
+The Ministry lists a plan to establish 2 lakh new multipurpose PACS/Dairy/Fishery cooperative societies in uncovered panchayats/villages.
+
+The Ministry's initiatives page states that the objective is to strengthen the cooperative movement and deepen its reach to grassroots level.
+
+The Ministry states that various Government schemes are intended to be brought together at the level of Primary Cooperative Societies for implementation.
+
+Implementation structures mentioned include:
+- Inter-Ministerial Committee (IMC)
+- National Level Coordination Committee (NLCC)
+- State Cooperative Development Committees (SCDC)
+- District Cooperative Development Committees (DCDC)
+
+This is a cooperative-institution expansion initiative. It does not mean every individual farmer automatically receives a personal benefit.
+
+============================================================
+9. MODEL BYE-LAWS FOR MULTIPURPOSE PACS
+============================================================
+
+Official Ministry source:
+https://www.cooperation.gov.in/en/initiatives-ministry-cooperation
+
+The Ministry prepared Model Bye-Laws to make PACS multipurpose and improve their viability.
+
+The Ministry states that the Model Bye-Laws can enable PACS/LAMPS to diversify into more than 25 sectors, including areas such as:
+- Dairy
+- Fisheries
+- Warehousing
+- Other agricultural and allied activities
+
+The Model Bye-Laws also cover areas such as membership, governance, financial management, decision-making and member/management responsibilities.
+
+The project's local knowledge base already contains:
+Model Byelaws 05.01.02023.pdf
+
+Use that document for detailed membership, services and by-law questions.
+
+============================================================
+10. PACS AS PRADHAN MANTRI KISAN SAMRIDDHI KENDRAS
+============================================================
+
+Official Ministry source:
+https://www.cooperation.gov.in/en/initiatives-ministry-cooperation
+
+The Ministry states that PACS can function as Pradhan Mantri Kisan Samriddhi Kendras (PMKSK).
+
+Purpose described by the Ministry:
+- Provide fertilizers.
+- Provide pesticides.
+- Provide various agricultural inputs.
+- Make agricultural inputs available through a single shop.
+
+This is a PACS-level service initiative. Do not assume that every PACS is operational as a PMKSK.
+
+============================================================
+11. PACS AS PAANI SAMITI
+============================================================
+
+Official Ministry source:
+https://www.cooperation.gov.in/en/initiatives-ministry-cooperation
+
+The Ministry lists PACS as Paani Samiti to provide operation and maintenance services under rural piped water supply schemes.
+
+This is a PACS/cooperative service activity rather than an individual farmer cash-benefit scheme.
+
+============================================================
+12. HOW COOP SAHAYAK SHOULD USE THIS KNOWLEDGE
+============================================================
+
+Examples of questions the knowledge base should support:
+
+Q: What schemes are available for PACS?
+A: Explain the Ministry's PACS-related initiatives listed in the official source.
+
+Q: Can my PACS provide government services?
+A: Explain the CSC initiative and state that participating PACS may provide e-services.
+
+Q: Can PACS open a Jan Aushadhi Kendra?
+A: Explain that the Ministry lists Jan Aushadhi Kendras by PACS and that eligible PACS may apply, without inventing additional requirements.
+
+Q: What is the computerization of PACS?
+A: Explain the ERP/common software project and its objectives.
+
+Q: What is the grain storage plan?
+A: Explain the PACS-level infrastructure and farmer benefits such as storage and reduced distress sales.
+
+Q: I am a PACS member. Which Ministry initiatives may affect my society?
+A: Summarize relevant PACS-level initiatives and distinguish society-level opportunities from individual farmer benefits.
+
+Q: I am a farmer. Which Ministry of Cooperation scheme applies to me?
+A: First understand whether the user is asking about an individual farmer benefit, a PACS/member service, or a cooperative-society opportunity. Use only supported information. Do not claim eligibility unless the source explicitly supports it.
+
+============================================================
+13. SOURCE-GROUNDED SAFETY RULE
+============================================================
+
+This knowledge base contains Ministry of Cooperation schemes and initiatives.
+
+For:
+- eligibility
+- documents required
+- application process
+- subsidy amount
+- financial assistance amount
+- deadlines
+- state-specific availability
+- current implementation status
+
+only provide the detail if it is explicitly present in the retrieved official source.
+
+Otherwise say:
+"The information is not available in the provided documents. Please verify it from the latest official source."
+
+============================================================
+END OF DOCUMENT
+============================================================

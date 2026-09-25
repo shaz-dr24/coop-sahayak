@@ -1,0 +1,2979 @@
+/* =========================================================
+   COOP SAHAYAK
+   ATM / KIOSK INTERFACE
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.atm-page {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(circle at 20% 10%,
+      rgba(42, 75, 72, 0.45),
+      transparent 32%),
+    radial-gradient(circle at 80% 90%,
+      rgba(18, 58, 48, 0.35),
+      transparent 35%),
+    #101716;
+
+  color: #18231f;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   ATM MACHINE
+   ========================================================= */
+
+.atm-machine {
+
+  width: min(1500px,
+      calc(100vw - 36px));
+
+  height: min(940px,
+      calc(100vh - 36px));
+
+  min-height: 700px;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    linear-gradient(145deg,
+      #29322f,
+      #151b1a 45%,
+      #303a37);
+
+  border:
+    3px solid #4a5651;
+
+  border-radius: 30px;
+
+  box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+/* =========================================================
+   TOP STRIP
+   ========================================================= */
+
+.atm-top-strip {
+
+  height: 58px;
+
+  flex-shrink: 0;
+
+  padding:
+    0 25px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  background:
+    linear-gradient(180deg,
+      #3c4743,
+      #242c29);
+
+  border-bottom:
+    2px solid #111715;
+
+  color: white;
+}
+
+.atm-brand-mark {
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(135deg,
+      #1b8d59,
+      #42bb78);
+
+  font-size: 23px;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, .35);
+}
+
+.atm-machine-title {
+
+  font-size: 19px;
+  font-weight: 900;
+
+  letter-spacing: 1.2px;
+}
+
+.atm-machine-subtitle {
+
+  font-size: 10px;
+
+  color: #aeb9b4;
+
+  letter-spacing: 1.4px;
+}
+
+.atm-power {
+
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  color: #a9c8b5;
+}
+
+.atm-power span {
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #35d77b;
+
+  box-shadow:
+    0 0 0 4px rgba(53, 215, 123, .12),
+    0 0 15px rgba(53, 215, 123, .8);
+}
+
+/* =========================================================
+   ATM BODY
+   ========================================================= */
+
+.atm-body {
+
+  flex: 1;
+
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    150px minmax(0, 1fr) 150px;
+
+  gap: 10px;
+
+  padding: 13px;
+
+  background:
+    linear-gradient(135deg,
+      #414b48,
+      #252c2a);
+}
+
+/* =========================================================
+   SIDE PANELS
+   ========================================================= */
+
+.atm-side-panel {
+
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 17px;
+
+  padding:
+    20px 8px;
+
+  position: relative;
+}
+
+.side-panel-label {
+
+  margin-bottom: 5px;
+
+  text-align: center;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  color: #aeb8b4;
+}
+
+/* =========================================================
+   ATM SIDE BUTTON
+   ========================================================= */
+
+.atm-side-button {
+
+  min-height: 66px;
+
+  padding: 6px 8px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 6px;
+
+  border-radius: 8px;
+
+  border:
+    2px solid #606966;
+
+  background:
+    linear-gradient(180deg,
+      #f0f2f1,
+      #bfc6c3);
+
+  color: #17211e;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: .4px;
+
+  box-shadow:
+    0 5px 0 #161b19,
+    inset 0 1px 0 white,
+    inset 0 -3px 7px rgba(0, 0, 0, .14);
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+.atm-side-button:hover {
+
+  background:
+    linear-gradient(180deg,
+      #ffffff,
+      #d1d7d4);
+
+  transform:
+    translateY(-1px);
+}
+
+.atm-side-button:active {
+
+  transform:
+    translateY(4px);
+
+  box-shadow:
+    0 1px 0 #161b19,
+    inset 0 2px 5px rgba(0, 0, 0, .18);
+}
+
+.side-arrow {
+
+  width: 30px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(180deg,
+      #707b76,
+      #454e4b);
+
+  color: white;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .25);
+}
+
+/* =========================================================
+   CENTRAL ATM SCREEN
+   ========================================================= */
+
+.atm-screen {
+
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border:
+    8px solid #0f1413;
+
+  border-radius: 18px;
+
+  background:
+    #eef5f0;
+
+  box-shadow:
+    inset 0 0 0 2px #57635e,
+    inset 0 0 45px rgba(0, 0, 0, .10),
+    0 10px 30px rgba(0, 0, 0, .35);
+
+  position: relative;
+}
+
+/* =========================================================
+   SCREEN HEADER
+   ========================================================= */
+
+.screen-header {
+
+  min-height: 76px;
+
+  padding:
+    9px 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background:
+    linear-gradient(180deg,
+      #ffffff,
+      #f3f8f4);
+
+  border-bottom:
+    1px solid #c9d8cf;
+
+  flex-shrink: 0;
+}
+
+.screen-brand {
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.screen-logo {
+
+  width: 49px;
+  height: 49px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(135deg,
+      #15935a,
+      #3bb877);
+
+  font-size: 27px;
+
+  box-shadow:
+    0 5px 14px rgba(21, 147, 90, .22);
+}
+
+.screen-title {
+
+  color: #0f4f32;
+
+  font-size: 22px;
+
+  font-weight: 950;
+
+  letter-spacing: -.5px;
+}
+
+.screen-subtitle {
+
+  margin-top: 2px;
+
+  color: #75837b;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.screen-controls {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+.language-box {
+
+  height: 43px;
+
+  padding:
+    0 11px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  border:
+    1px solid #c9d9cf;
+
+  border-radius: 9px;
+
+  background: white;
+
+  color: #286244;
+
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, .05);
+}
+
+.language-box select {
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #1f3429;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.new-session {
+
+  height: 43px;
+
+  padding:
+    0 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  border:
+    1px solid #bcd3c5;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(180deg,
+      #ffffff,
+      #edf6ef);
+
+  color: #226041;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+}
+
+.new-session:hover {
+
+  background: #e4f3e8;
+
+  transform:
+    translateY(-1px);
+}
+
+/* =========================================================
+   SCREEN STATUS
+   ========================================================= */
+
+.screen-status-bar {
+
+  height: 36px;
+
+  flex-shrink: 0;
+
+  padding:
+    0 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background:
+    #f7faf8;
+
+  border-bottom:
+    1px solid #d6e0da;
+
+  color: #829087;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+.session-info {
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.session-info span {
+
+  color: #a0aaa5;
+
+  letter-spacing: 1.2px;
+}
+
+.session-info strong {
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  color: #77857c;
+
+  font-size: 9px;
+}
+
+.live-status {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #328059;
+}
+
+.live-dot {
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #29a966;
+
+  box-shadow:
+    0 0 0 4px rgba(41, 169, 102, .10);
+}
+
+.live-status.recording {
+
+  color: #c93636;
+}
+
+.live-status.recording .live-dot {
+
+  background: #e53e3e;
+
+  animation:
+    pulseRed 1s infinite;
+}
+
+.live-status.processing {
+
+  color: #a46b17;
+}
+
+@keyframes pulseRed {
+
+  50% {
+    opacity: .35;
+    transform: scale(.75);
+  }
+}
+
+/* =========================================================
+   CHAT
+   ========================================================= */
+
+.screen-chat {
+
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  padding:
+    20px 28px 20px;
+
+  background:
+
+    radial-gradient(circle at 50% 10%,
+      rgba(255, 255, 255, .85),
+      transparent 42%),
+
+    linear-gradient(180deg,
+      #eef6f1,
+      #e8f0eb);
+}
+
+/* =========================================================
+   WELCOME
+   ========================================================= */
+
+.atm-welcome {
+
+  max-width: 800px;
+
+  margin:
+    25px auto 15px;
+
+  text-align: center;
+
+  color: #24382d;
+}
+
+.welcome-emblem {
+
+  width: 78px;
+  height: 78px;
+
+  margin:
+    0 auto 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(135deg,
+      #d9f4e2,
+      #c0e8cf);
+
+  font-size: 41px;
+
+  box-shadow:
+    0 10px 25px rgba(30, 110, 68, .13);
+}
+
+.welcome-kicker {
+
+  color: #4c8266;
+
+  font-size: 11px;
+
+  font-weight: 950;
+
+  letter-spacing: 3px;
+}
+
+.atm-welcome h1 {
+
+  margin:
+    3px 0 4px;
+
+  color: #0d5133;
+
+  font-size: 34px;
+
+  font-weight: 950;
+
+  letter-spacing: -.8px;
+}
+
+.atm-welcome h2 {
+
+  margin:
+    0 0 8px;
+
+  color: #30493b;
+
+  font-size: 19px;
+
+  font-weight: 850;
+}
+
+.atm-welcome p {
+
+  max-width: 650px;
+
+  margin: auto;
+
+  color: #6c7d73;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   QUICK MENU
+   ========================================================= */
+
+.quick-menu {
+
+  max-width: 760px;
+
+  margin:
+    20px auto 0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 10px;
+}
+
+.quick-menu button {
+
+  min-height: 67px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  border:
+    1px solid #cbdcd1;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(180deg,
+      #ffffff,
+      #edf5ef);
+
+  color: #205b3d;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 4px 10px rgba(30, 70, 48, .07);
+}
+
+.quick-menu button span {
+
+  font-size: 20px;
+}
+
+.quick-menu button:hover {
+
+  border-color: #8dbba0;
+
+  background: #f9fffb;
+
+  transform:
+    translateY(-2px);
+}
+
+/* =========================================================
+   MESSAGES
+   ========================================================= */
+
+.messages {
+
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.atm-message-row {
+
+  width: 100%;
+
+  display: flex;
+}
+
+.atm-message-row.user {
+
+  justify-content: flex-end;
+}
+
+.atm-message-row.assistant {
+
+  justify-content: flex-start;
+}
+
+.message-card {
+
+  max-width: 78%;
+
+  min-width: 250px;
+}
+
+.atm-message-row.user .message-card {
+
+  margin-left: auto;
+}
+
+.message-card-top {
+
+  margin-bottom: 4px;
+
+  padding:
+    0 5px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  color: #7c8b82;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: .6px;
+}
+
+.message-role {
+
+  text-transform: uppercase;
+}
+
+.message-clock {
+
+  white-space: nowrap;
+}
+
+.atm-message {
+
+  padding:
+    17px 20px;
+
+  border-radius: 13px;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+
+  white-space: pre-wrap;
+
+  word-break: break-word;
+
+  font-family:
+    "Inter",
+    "Noto Sans Tamil",
+    "Noto Sans Devanagari",
+    "Noto Sans Telugu",
+    system-ui,
+    sans-serif;
+}
+
+.atm-message.user {
+
+  color: white;
+
+  background:
+    linear-gradient(135deg,
+      #117649,
+      #22925c);
+
+  border:
+    2px solid #0f693f;
+
+  border-radius:
+    15px 15px 4px 15px;
+
+  box-shadow:
+    0 7px 17px rgba(20, 105, 64, .22);
+}
+
+.atm-message.assistant {
+
+  color: #24392d;
+
+  background:
+    rgba(255, 255, 255, .96);
+
+  border:
+    1px solid #cbd9d1;
+
+  border-radius:
+    15px 15px 15px 4px;
+
+  box-shadow:
+    0 5px 15px rgba(30, 70, 48, .08);
+}
+
+/* =========================================================
+   MESSAGE ACTIONS
+   ========================================================= */
+
+.message-actions {
+
+  margin-top: 7px;
+
+  display: flex;
+
+  gap: 8px;
+}
+
+.speak-response,
+.stop-response {
+
+  min-height: 36px;
+
+  padding:
+    0 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  border-radius: 8px;
+
+  font-size: 10px;
+
+  font-weight: 950;
+
+  letter-spacing: .6px;
+}
+
+.speak-response {
+
+  background: #e8f6ed;
+
+  border:
+    1px solid #c7e3d0;
+
+  color: #236341;
+}
+
+.stop-response {
+
+  background: #fff0f0;
+
+  border:
+    1px solid #efcaca;
+
+  color: #c33434;
+}
+
+/* =========================================================
+   PROCESSING
+   ========================================================= */
+
+.processing-card {
+
+  width: fit-content;
+
+  min-width: 210px;
+
+  padding:
+    13px 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  border:
+    1px solid #cbd9d1;
+
+  border-radius:
+    13px 13px 13px 4px;
+
+  background:
+    rgba(255, 255, 255, .94);
+
+  box-shadow:
+    0 4px 14px rgba(30, 70, 48, .07);
+}
+
+.robot-icon {
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #e5f5eb;
+
+  font-size: 19px;
+}
+
+.processing-card strong {
+
+  color: #286142;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+}
+
+.thinking-dots {
+
+  display: flex;
+
+  gap: 4px;
+
+  margin-top: 5px;
+}
+
+.thinking-dots span {
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #4c9670;
+
+  animation:
+    thinking 1.1s infinite;
+}
+
+.thinking-dots span:nth-child(2) {
+  animation-delay: .15s;
+}
+
+.thinking-dots span:nth-child(3) {
+  animation-delay: .30s;
+}
+
+@keyframes thinking {
+
+  0%,
+  70%,
+  100% {
+    opacity: .35;
+    transform: translateY(0);
+  }
+
+  35% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}
+
+/* =========================================================
+   TICKET
+   ========================================================= */
+
+.ticket-panel {
+
+  margin-top: 5px;
+
+  padding:
+    15px 18px;
+
+  display: flex;
+
+  gap: 13px;
+
+  border:
+    2px solid #9bc7aa;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(135deg,
+      #edfaf1,
+      #dcf2e4);
+
+  color: #205a3b;
+}
+
+.ticket-icon {
+
+  font-size: 25px;
+}
+
+.ticket-panel strong {
+
+  font-size: 12px;
+
+  font-weight: 950;
+
+  letter-spacing: .8px;
+}
+
+.ticket-panel p {
+
+  margin:
+    3px 0 6px;
+
+  font-size: 11px;
+
+  color: #668073;
+}
+
+.ticket-panel code {
+
+  display: inline-block;
+
+  padding:
+    5px 8px;
+
+  border-radius: 5px;
+
+  background: white;
+
+  color: #1e6340;
+
+  font-size: 11px;
+
+  font-weight: 900;
+}
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.atm-error {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 285px;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 100;
+
+  width: min(700px,
+      calc(100% - 40px));
+
+  min-height: 48px;
+
+  padding:
+    8px 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  border:
+    2px solid #e6bcbc;
+
+  border-radius: 9px;
+
+  background:
+    #fff5f5;
+
+  color: #a92e2e;
+
+  box-shadow:
+    0 12px 30px rgba(90, 20, 20, .16);
+
+  font-size: 12px;
+}
+
+.atm-error button {
+
+  margin-left: auto;
+
+  width: 28px;
+  height: 28px;
+
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: #a92e2e;
+
+  font-size: 22px;
+}
+
+/* =========================================================
+   BOTTOM CONSOLE
+   ========================================================= */
+
+.atm-console {
+
+  flex-shrink: 0;
+
+  padding:
+    10px 14px 8px;
+
+  background:
+    linear-gradient(180deg,
+      #eaf2ed,
+      #dce8e1);
+
+  border-top:
+    2px solid #c2d2c8;
+}
+
+/* =========================================================
+   VOICE CONSOLE
+   ========================================================= */
+
+.voice-console {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 8px;
+}
+
+.voice-console-title {
+
+  width: 150px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #52665b;
+
+  font-size: 10px;
+
+  font-weight: 950;
+
+  letter-spacing: 1.2px;
+}
+
+.voice-light {
+
+  width: 12px;
+  height: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f2d4d4;
+}
+
+.voice-light span {
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #d13e3e;
+}
+
+/* =========================================================
+   VOICE BUTTONS
+   ========================================================= */
+
+.voice-buttons {
+
+  flex: 1;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 10px;
+}
+
+.voice-start,
+.voice-stop {
+
+  min-height: 62px;
+
+  padding:
+    8px 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 11px;
+
+  border-radius: 9px;
+
+  color: white;
+
+  border:
+    2px solid #8f2626;
+
+  background:
+    linear-gradient(180deg,
+      #ef4b4b,
+      #c72f2f);
+
+  box-shadow:
+    0 5px 0 #8a2222,
+    0 8px 16px rgba(130, 30, 30, .20);
+
+  cursor: pointer;
+}
+
+.voice-stop {
+
+  background:
+    linear-gradient(180deg,
+      #e43f3f,
+      #ae2525);
+}
+
+.voice-start:hover:not(:disabled),
+.voice-stop:hover:not(:disabled) {
+
+  background:
+    linear-gradient(180deg,
+      #ff5a5a,
+      #d93232);
+
+  transform:
+    translateY(-1px);
+}
+
+.voice-start:active:not(:disabled),
+.voice-stop:active:not(:disabled) {
+
+  transform:
+    translateY(4px);
+
+  box-shadow:
+    0 1px 0 #8a2222;
+}
+
+.voice-start:disabled,
+.voice-stop:disabled {
+
+  opacity: .35;
+
+  cursor: not-allowed;
+
+  filter: grayscale(.3);
+}
+
+.voice-start.active {
+
+  animation:
+    redButtonPulse 1s infinite;
+}
+
+@keyframes redButtonPulse {
+
+  50% {
+    box-shadow:
+      0 5px 0 #8a2222,
+      0 0 0 5px rgba(220, 50, 50, .12),
+      0 10px 25px rgba(130, 30, 30, .25);
+  }
+}
+
+.voice-start strong,
+.voice-stop strong {
+
+  display: block;
+
+  font-size: 14px;
+
+  font-weight: 950;
+
+  letter-spacing: .8px;
+}
+
+.voice-start small,
+.voice-stop small {
+
+  display: block;
+
+  margin-top: 2px;
+
+  opacity: .85;
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   TEXT CONSOLE
+   ========================================================= */
+
+.text-console {
+
+  margin-top: 5px;
+}
+
+.text-console-header {
+
+  height: 24px;
+
+  padding:
+    0 5px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  color: #61736a;
+
+  font-size: 9px;
+
+  font-weight: 950;
+
+  letter-spacing: 1px;
+}
+
+.text-console-header span {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+.input-terminal {
+
+  min-height: 63px;
+
+  padding:
+    7px 8px 7px 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  border:
+    2px solid #aebfb4;
+
+  border-radius: 10px;
+
+  background:
+    #ffffff;
+
+  box-shadow:
+    inset 0 2px 5px rgba(0, 0, 0, .06),
+    0 4px 10px rgba(30, 70, 48, .08);
+
+  transition:
+    border-color .2s,
+    box-shadow .2s;
+}
+
+.input-terminal.keyboard-open {
+
+  border-color:
+    #4d9670;
+
+  box-shadow:
+    0 0 0 3px rgba(48, 140, 89, .10),
+    inset 0 2px 5px rgba(0, 0, 0, .05);
+}
+
+.input-terminal textarea {
+
+  flex: 1;
+
+  min-width: 0;
+
+  min-height: 42px;
+
+  max-height: 100px;
+
+  resize: none;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #1f3328;
+
+  font-family:
+    "Inter",
+    "Noto Sans Tamil",
+    "Noto Sans Devanagari",
+    "Noto Sans Telugu",
+    system-ui,
+    sans-serif;
+
+  font-size: 17px;
+
+  line-height: 1.5;
+
+  font-weight: 600;
+}
+
+.input-terminal textarea::placeholder {
+
+  color: #98a49e;
+}
+
+.keyboard-toggle {
+
+  width: 50px;
+  height: 50px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid #bfd2c6;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(180deg,
+      #f3f8f5,
+      #e0ece5);
+
+  color: #2c704e;
+}
+
+.keyboard-toggle:hover {
+
+  background: #dcefe3;
+}
+
+/* =========================================================
+   SEND
+   ========================================================= */
+
+.send-terminal {
+
+  min-width: 120px;
+  height: 50px;
+
+  padding:
+    0 17px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  border:
+    2px solid #0d633c;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(180deg,
+      #24965f,
+      #117144);
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 950;
+
+  letter-spacing: 1px;
+
+  box-shadow:
+    0 4px 0 #0a4e30,
+    0 7px 13px rgba(15, 105, 62, .20);
+}
+
+.send-terminal:hover:not(:disabled) {
+
+  transform:
+    translateY(-1px);
+}
+
+.send-terminal:active:not(:disabled) {
+
+  transform:
+    translateY(3px);
+
+  box-shadow:
+    0 1px 0 #0a4e30;
+}
+
+.send-terminal:disabled {
+
+  opacity: .35;
+
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   VIRTUAL KEYBOARD
+   ========================================================= */
+
+.virtual-keyboard {
+
+  margin-top: 9px;
+
+  padding:
+    9px 10px 10px;
+
+  border:
+    3px solid #3d4844;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(180deg,
+      #242a28,
+      #151a19);
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, .38),
+    inset 0 1px 0 rgba(255, 255, 255, .10);
+
+  animation:
+    keyboardOpen .18s ease-out;
+}
+
+@keyframes keyboardOpen {
+
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.keyboard-header {
+
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  color: white;
+}
+
+.keyboard-header>div {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.keyboard-header strong {
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+}
+
+.keyboard-header button {
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+
+  background: #343c39;
+
+  color: white;
+}
+
+.keyboard-header button:hover {
+
+  background: #4a5550;
+}
+
+/* =========================================================
+   KEYBOARD BODY
+   ========================================================= */
+
+.keyboard-body {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.keyboard-row {
+
+  display: flex;
+
+  gap: 5px;
+}
+
+.keyboard-row button {
+
+  flex: 1;
+
+  min-width: 0;
+
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    2px solid #525b57;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(180deg,
+      #383e3c,
+      #252a28);
+
+  color: #f7f8f7;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 3px 0 #111514,
+    inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+.keyboard-row button:hover {
+
+  background:
+    linear-gradient(180deg,
+      #4b5450,
+      #303633);
+}
+
+.keyboard-row button:active {
+
+  transform:
+    translateY(2px);
+
+  box-shadow:
+    0 1px 0 #111514;
+}
+
+.number-row button {
+
+  height: 34px;
+
+  font-size: 13px;
+}
+
+.number-row .wide-key {
+
+  flex:
+    0 0 70px;
+}
+
+/* =========================================================
+   BOTTOM KEYBOARD ROW
+   ========================================================= */
+
+.keyboard-bottom-row {
+
+  display: flex;
+
+  gap: 5px;
+}
+
+.special-key,
+.space-key {
+
+  height: 39px;
+
+  border:
+    2px solid #525b57;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(180deg,
+      #414845,
+      #292e2c);
+
+  color: white;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: .5px;
+
+  box-shadow:
+    0 3px 0 #111514;
+}
+
+.special-key {
+
+  min-width: 95px;
+
+  padding:
+    0 13px;
+}
+
+.space-key {
+
+  flex: 1;
+}
+
+.enter-key {
+
+  min-width: 120px;
+
+  background:
+    linear-gradient(180deg,
+      #238d5b,
+      #12653f);
+
+  border-color:
+    #3aa870;
+}
+
+.enter-key:disabled {
+
+  opacity: .35;
+}
+
+.shift-key.selected {
+
+  background:
+    linear-gradient(180deg,
+      #2c8e5d,
+      #17653f);
+}
+
+/* =========================================================
+   CONSOLE FOOTER
+   ========================================================= */
+
+.console-footer {
+
+  height: 20px;
+
+  padding:
+    3px 5px 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #738179;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: .8px;
+}
+
+.console-right {
+
+  margin-left: auto;
+}
+
+/* =========================================================
+   ATM BOTTOM STRIP
+   ========================================================= */
+
+.atm-bottom-strip {
+
+  height: 28px;
+
+  flex-shrink: 0;
+
+  padding:
+    0 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background:
+    #151b19;
+
+  border-top:
+    1px solid #4a5550;
+
+  color: #84918b;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.2px;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.screen-chat::-webkit-scrollbar {
+
+  width: 9px;
+}
+
+.screen-chat::-webkit-scrollbar-track {
+
+  background:
+    rgba(0, 0, 0, .04);
+}
+
+.screen-chat::-webkit-scrollbar-thumb {
+
+  border-radius: 20px;
+
+  background:
+    #aabbb0;
+}
+
+.screen-chat::-webkit-scrollbar-thumb:hover {
+
+  background:
+    #84998c;
+}
+
+/* =========================================================
+   INDIAN LANGUAGE FONT
+   ========================================================= */
+
+.atm-message,
+.input-terminal textarea,
+.atm-welcome {
+
+  font-family:
+    "Inter",
+    "Noto Sans Tamil",
+    "Noto Sans Devanagari",
+    "Noto Sans Telugu",
+    system-ui,
+    sans-serif;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .atm-body {
+
+    grid-template-columns:
+      105px minmax(0, 1fr) 105px;
+  }
+
+  .atm-side-button {
+
+    min-height: 55px;
+
+    font-size: 9px;
+  }
+
+  .side-arrow {
+
+    width: 24px;
+    height: 28px;
+  }
+
+  .atm-message {
+
+    font-size: 16px;
+  }
+
+  .voice-console-title {
+
+    width: 105px;
+
+    font-size: 8px;
+  }
+
+  .voice-start strong,
+  .voice-stop strong {
+
+    font-size: 11px;
+  }
+
+  .send-terminal {
+
+    min-width: 95px;
+  }
+}
+
+/* =========================================================
+   SMALL SCREEN
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .atm-page {
+
+    padding: 0;
+  }
+
+  .atm-machine {
+
+    width: 100vw;
+    height: 100vh;
+
+    min-height: 600px;
+
+    border-radius: 0;
+
+    border: none;
+  }
+
+  .atm-body {
+
+    grid-template-columns:
+      78px minmax(0, 1fr) 78px;
+
+    gap: 4px;
+
+    padding: 5px;
+  }
+
+  .atm-side-panel {
+
+    gap: 10px;
+
+    padding:
+      10px 3px;
+  }
+
+  .side-panel-label {
+
+    font-size: 7px;
+  }
+
+  .atm-side-button {
+
+    min-height: 48px;
+
+    padding: 4px;
+
+    font-size: 7px;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 2px;
+  }
+
+  .side-arrow {
+
+    width: 21px;
+    height: 21px;
+  }
+
+  .screen-header {
+
+    padding:
+      7px 10px;
+  }
+
+  .screen-title {
+
+    font-size: 17px;
+  }
+
+  .screen-subtitle {
+
+    display: none;
+  }
+
+  .screen-logo {
+
+    width: 39px;
+    height: 39px;
+
+    font-size: 21px;
+  }
+
+  .language-box {
+
+    height: 37px;
+  }
+
+  .new-session {
+
+    width: 40px;
+
+    height: 37px;
+
+    padding: 0;
+
+    justify-content: center;
+  }
+
+  .new-session span {
+
+    display: none;
+  }
+
+  .screen-status-bar {
+
+    padding:
+      0 10px;
+  }
+
+  .session-info strong {
+
+    display: none;
+  }
+
+  .screen-chat {
+
+    padding:
+      12px 10px;
+  }
+
+  .atm-welcome {
+
+    margin-top: 15px;
+  }
+
+  .atm-welcome h1 {
+
+    font-size: 27px;
+  }
+
+  .atm-welcome h2 {
+
+    font-size: 15px;
+  }
+
+  .atm-welcome p {
+
+    font-size: 12px;
+  }
+
+  .quick-menu {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .message-card {
+
+    max-width: 90%;
+  }
+
+  .atm-message {
+
+    padding:
+      13px 15px;
+
+    font-size: 15px;
+  }
+
+  .voice-console {
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 5px;
+  }
+
+  .voice-console-title {
+
+    width: auto;
+  }
+
+  .voice-buttons {
+
+    gap: 6px;
+  }
+
+  .voice-start,
+  .voice-stop {
+
+    min-height: 53px;
+  }
+
+  .voice-start strong,
+  .voice-stop strong {
+
+    font-size: 10px;
+  }
+
+  .voice-start small,
+  .voice-stop small {
+
+    font-size: 7px;
+  }
+
+  .input-terminal {
+
+    min-height: 55px;
+
+    padding-left: 10px;
+  }
+
+  .input-terminal textarea {
+
+    font-size: 14px;
+  }
+
+  .keyboard-toggle {
+
+    width: 43px;
+    height: 43px;
+  }
+
+  .send-terminal {
+
+    min-width: 65px;
+
+    height: 43px;
+
+    padding: 0 8px;
+  }
+
+  .send-terminal span {
+
+    display: none;
+  }
+
+  .virtual-keyboard {
+
+    max-height: 290px;
+
+    overflow-y: auto;
+  }
+
+  .keyboard-row button {
+
+    height: 33px;
+
+    font-size: 13px;
+  }
+
+  .keyboard-bottom-row {
+
+    flex-wrap: wrap;
+  }
+
+  .space-key {
+
+    min-width: 130px;
+  }
+
+  .atm-bottom-strip {
+
+    display: none;
+  }
+}
+
+/* =========================================================
+   VERY SMALL
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+  .atm-body {
+
+    grid-template-columns:
+      57px minmax(0, 1fr) 57px;
+  }
+
+  .atm-side-button {
+
+    min-height: 42px;
+
+    font-size: 6px;
+  }
+
+  .side-arrow {
+
+    display: none;
+  }
+
+  .atm-machine-title {
+
+    font-size: 14px;
+  }
+
+  .atm-machine-subtitle {
+
+    display: none;
+  }
+
+  .atm-top-strip {
+
+    padding:
+      0 10px;
+  }
+
+  .atm-power {
+
+    display: none;
+  }
+
+  .screen-controls {
+
+    gap: 4px;
+  }
+
+  .language-box {
+
+    padding:
+      0 5px;
+  }
+
+  .language-box span {
+
+    display: none;
+  }
+
+  .screen-chat {
+
+    padding-bottom: 8px;
+  }
+
+  .message-card {
+
+    max-width: 94%;
+  }
+
+  .atm-message {
+
+    font-size: 14px;
+  }
+
+  .voice-start,
+  .voice-stop {
+
+    padding:
+      5px;
+
+    gap: 5px;
+  }
+
+  .voice-start svg,
+  .voice-stop svg {
+
+    width: 22px;
+    height: 22px;
+  }
+
+  .voice-start strong,
+  .voice-stop strong {
+
+    font-size: 8px;
+  }
+
+  .voice-start small,
+  .voice-stop small {
+
+    display: none;
+  }
+
+  .keyboard-row {
+
+    gap: 3px;
+  }
+
+  .keyboard-row button {
+
+    height: 30px;
+
+    border-width: 1px;
+
+    font-size: 11px;
+  }
+
+  .special-key {
+
+    min-width: 65px;
+
+    padding:
+      0 6px;
+
+    font-size: 8px;
+  }
+
+  .enter-key {
+
+    min-width: 80px;
+  }
+}
+
+/* =========================================================
+   COOP SAHAYAK — ATM SIZE / LAYOUT UPDATE
+   ========================================================= */
+
+.atm-top-strip {
+  display: none;
+}
+
+.atm-body {
+  grid-template-columns: 190px minmax(0, 1fr) 190px;
+  gap: 16px;
+  padding: 16px;
+}
+
+.atm-side-panel {
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 4px;
+}
+
+.atm-side-button {
+  flex: 1;
+  min-height: 82px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+}
+
+.side-panel-label {
+  margin-bottom: 4px;
+  font-size: 11px;
+}
+
+.side-arrow {
+  width: 38px;
+  height: 42px;
+}
+
+.screen-chat {
+  padding: 26px 32px 24px;
+}
+
+.messages {
+  max-width: 1000px;
+  gap: 18px;
+}
+
+.message-card {
+  max-width: 84%;
+}
+
+.atm-message {
+  padding: 19px 23px;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.atm-welcome {
+  max-width: 900px;
+  margin-top: 30px;
+}
+
+.atm-welcome h1 {
+  font-size: 38px;
+}
+
+.atm-welcome h2 {
+  font-size: 21px;
+}
+
+.atm-welcome p {
+  font-size: 15px;
+}
+
+.voice-start,
+.voice-stop {
+  min-height: 76px;
+  border-radius: 11px;
+}
+
+.voice-start strong,
+.voice-stop strong {
+  font-size: 16px;
+}
+
+.voice-start small,
+.voice-stop small {
+  font-size: 10px;
+}
+
+.input-terminal {
+  min-height: 72px;
+}
+
+.input-terminal textarea {
+  min-height: 48px;
+  font-size: 18px;
+}
+
+.keyboard-toggle {
+  width: 58px;
+  height: 58px;
+}
+
+.send-terminal {
+  min-width: 140px;
+  height: 58px;
+  font-size: 14px;
+}
+
+.virtual-keyboard {
+  padding: 11px 12px 12px;
+}
+
+.keyboard-row button {
+  height: 44px;
+  font-size: 16px;
+}
+
+.number-row button {
+  height: 40px;
+  font-size: 14px;
+}
+
+.special-key,
+.space-key {
+  height: 45px;
+  font-size: 12px;
+}
+
+@media (max-width: 1100px) {
+  .atm-body {
+    grid-template-columns: 145px minmax(0, 1fr) 145px;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .atm-side-button {
+    min-height: 70px;
+    font-size: 11px;
+  }
+
+  .side-arrow {
+    width: 32px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 800px) {
+  .atm-body {
+    grid-template-columns: 88px minmax(0, 1fr) 88px;
+    gap: 5px;
+    padding: 5px;
+  }
+
+  .atm-side-panel {
+    gap: 7px;
+    padding: 6px 2px;
+  }
+
+  .atm-side-button {
+    min-height: 60px;
+    padding: 5px 3px;
+    font-size: 8px;
+  }
+
+  .side-arrow {
+    width: 23px;
+    height: 25px;
+  }
+
+  .screen-chat {
+    padding: 14px 12px;
+  }
+
+  .atm-message {
+    font-size: 16px;
+  }
+
+  .voice-start,
+  .voice-stop {
+    min-height: 60px;
+  }
+
+  .input-terminal {
+    min-height: 58px;
+  }
+
+  .keyboard-row button {
+    height: 35px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 500px) {
+  .atm-body {
+    grid-template-columns: 62px minmax(0, 1fr) 62px;
+  }
+
+  .atm-side-button {
+    min-height: 48px;
+    font-size: 6.5px;
+  }
+
+  .side-arrow {
+    display: none;
+  }
+}
+
+/* =========================================================
+   SIH PROFESSIONAL KIOSK OVERRIDES
+   ========================================================= */
+
+.atm-top-strip {
+  display: none;
+}
+
+.atm-machine {
+  height: min(940px, calc(100vh - 24px));
+  min-height: 680px;
+}
+
+.atm-body {
+  grid-template-columns: 185px minmax(0, 1fr) 185px;
+  gap: 14px;
+  padding: 14px;
+}
+
+.atm-side-panel {
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 4px;
+}
+
+.side-panel-label {
+  font-size: 12px;
+  letter-spacing: 2.4px;
+}
+
+.atm-side-button {
+  flex: 1 1 0;
+  min-height: 0;
+  height: auto;
+  padding: 12px 12px;
+  font-size: 15px;
+  letter-spacing: .7px;
+}
+
+.side-arrow {
+  width: 42px;
+  height: 46px;
+}
+
+.screen-header {
+  min-height: 82px;
+  padding: 10px 20px;
+}
+
+.screen-logo.government-emblem {
+  width: 58px;
+  height: 58px;
+  padding: 7px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #d2dcd6;
+  box-shadow: none;
+}
+
+.screen-logo.government-emblem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.screen-title {
+  font-size: 25px;
+  letter-spacing: -.3px;
+}
+
+.screen-subtitle {
+  font-size: 12px;
+}
+
+.screen-chat {
+  padding: 22px 34px 22px;
+}
+
+.professional-home {
+  max-width: 1050px;
+  margin: 20px auto 10px;
+  text-align: left;
+}
+
+.home-identity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 8px auto 18px;
+}
+
+.home-emblem-frame {
+  width: 82px;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid #cfd9d3;
+  border-radius: 8px;
+  padding: 9px;
+}
+
+.home-emblem-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.home-identity-text {
+  border-left: 3px solid #0f6a45;
+  padding-left: 18px;
+}
+
+.home-govt-hi {
+  font-family: "Noto Sans Devanagari", sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #26362e;
+}
+
+.home-govt-en {
+  margin-top: 2px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  color: #53635b;
+}
+
+.home-divider {
+  width: 100%;
+  height: 1px;
+  margin: 9px 0 7px;
+  background: #c9d6cf;
+}
+
+.home-service {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+  color: #2a7652;
+}
+
+.home-title-block {
+  text-align: center;
+  margin: 0 auto 22px;
+}
+
+.home-title-block h1 {
+  margin: 0;
+  color: #123f2b;
+  font-size: clamp(30px, 3vw, 43px);
+  line-height: 1.08;
+  font-weight: 900;
+  letter-spacing: -.7px;
+}
+
+.home-title-block h2 {
+  margin: 8px 0 8px;
+  color: #40564a;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.home-title-block p {
+  max-width: 780px;
+  margin: 0 auto;
+  color: #687970;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.professional-menu {
+  max-width: 900px;
+  margin: 20px auto 0;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+}
+
+.professional-menu button {
+  min-height: 112px;
+  padding: 15px 13px;
+  align-items: flex-start;
+  text-align: left;
+  border: 1px solid #c4d6ca;
+  border-top: 4px solid #24764e;
+  border-radius: 9px;
+  background: linear-gradient(180deg, #ffffff, #edf5ef);
+  box-shadow: 0 5px 13px rgba(30, 70, 48, .08);
+}
+
+.professional-menu button:hover {
+  transform: translateY(-2px);
+  border-color: #8bb9a0;
+  background: #fff;
+}
+
+.professional-menu .menu-code {
+  font-size: 11px;
+  font-weight: 900;
+  color: #73847a;
+  letter-spacing: 1px;
+}
+
+.professional-menu button strong {
+  margin-top: 12px;
+  color: #184d35;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.professional-menu button small {
+  margin-top: 5px;
+  color: #71907e;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.home-instruction {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 20px;
+  color: #65766c;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.atm-message {
+  font-size: 19px;
+  line-height: 1.75;
+}
+
+.message-card-top {
+  font-size: 10px;
+}
+
+@media (max-width: 1100px) {
+  .atm-body {
+    grid-template-columns: 150px minmax(0, 1fr) 150px;
+  }
+
+  .atm-side-button {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 800px) {
+  .atm-body {
+    grid-template-columns: 105px minmax(0, 1fr) 105px;
+  }
+
+  .atm-side-button {
+    font-size: 11px;
+    padding: 8px 6px;
+  }
+
+  .side-arrow {
+    width: 34px;
+    height: 38px;
+  }
+
+  .professional-menu {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Coop Sahayak Voice Test</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f4f7f5;
+
+            color: #222;
+        }
+
+
+        .container {
+
+            width: 90%;
+
+            max-width: 900px;
+
+            margin: 40px auto;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 25px rgba(0, 0, 0, 0.10);
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            color: #174a2d;
+
+            margin-bottom: 5px;
+        }
+
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #777;
+
+            margin-bottom: 25px;
+        }
+
+
+        .session {
+
+            text-align: center;
+
+            font-size: 13px;
+
+            color: #777;
+
+            margin-bottom: 25px;
+
+            word-break: break-all;
+        }
+
+
+        .controls {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+
+            flex-wrap: wrap;
+        }
+
+
+        button {
+
+            border: none;
+
+            border-radius: 8px;
+
+            padding: 13px 25px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+        }
+
+
+        #startBtn {
+
+            background: #198754;
+
+            color: white;
+        }
+
+
+        #startBtn:hover {
+
+            background: #146c43;
+        }
+
+
+        #stopBtn {
+
+            background: #dc3545;
+
+            color: white;
+        }
+
+
+        #stopBtn:hover {
+
+            background: #bb2d3b;
+        }
+
+
+        #speakBtn {
+
+            background: #0d6efd;
+
+            color: white;
+
+            display: none;
+
+            margin-top: 15px;
+        }
+
+
+        #speakBtn:hover {
+
+            background: #0b5ed7;
+        }
+
+
+        #stopSpeakBtn {
+
+            background: #6c757d;
+
+            color: white;
+
+            display: none;
+
+            margin-top: 15px;
+
+            margin-left: 10px;
+        }
+
+
+        button:disabled {
+
+            opacity: 0.5;
+
+            cursor: not-allowed;
+        }
+
+
+        .status {
+
+            text-align: center;
+
+            padding: 13px;
+
+            border-radius: 8px;
+
+            margin-bottom: 25px;
+
+            background: #eef2f0;
+
+            font-weight: bold;
+        }
+
+
+        .recording {
+
+            background: #fff3cd;
+
+            color: #664d03;
+        }
+
+
+        .processing {
+
+            background: #cff4fc;
+
+            color: #055160;
+        }
+
+
+        .success {
+
+            background: #d1e7dd;
+
+            color: #0f5132;
+        }
+
+
+        .error {
+
+            background: #f8d7da;
+
+            color: #842029;
+        }
+
+
+        .section {
+
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 10px;
+
+            background: #fafafa;
+        }
+
+
+        .section h2 {
+
+            margin-top: 0;
+
+            color: #174a2d;
+
+            font-size: 20px;
+        }
+
+
+        .text-box {
+
+            background: white;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            padding: 15px;
+
+            min-height: 60px;
+
+            line-height: 1.6;
+
+            white-space: pre-wrap;
+
+            word-break: break-word;
+        }
+
+
+        #botResponse {
+
+            font-size: 17px;
+        }
+
+
+        pre {
+
+            background: #171717;
+
+            color: #00ff88;
+
+            padding: 15px;
+
+            border-radius: 8px;
+
+            overflow-x: auto;
+
+            white-space: pre-wrap;
+
+            font-size: 13px;
+
+            max-height: 350px;
+
+            overflow-y: auto;
+        }
+
+
+        .voice-controls {
+
+            text-align: center;
+
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <!-- ========================================= -->
+        <!-- TITLE -->
+        <!-- ========================================= -->
+
+        <h1>
+            🎤 Coop Sahayak Voice Test
+        </h1>
+
+
+        <div class="subtitle">
+
+            Voice → AI Response → Speech
+
+        </div>
+
+
+        <!-- ========================================= -->
+        <!-- SESSION -->
+        <!-- ========================================= -->
+
+        <div class="session">
+
+            Session ID:
+
+            <span id="sessionIdDisplay">
+                Creating...
+            </span>
+
+        </div>
+
+
+        <!-- ========================================= -->
+        <!-- STATUS -->
+        <!-- ========================================= -->
+
+        <div id="status" class="status">
+
+            Ready. Press Start Recording.
+
+        </div>
+
+
+        <!-- ========================================= -->
+        <!-- RECORDING BUTTONS -->
+        <!-- ========================================= -->
+
+        <div class="controls">
+
+            <button id="startBtn" onclick="startRecording()">
+
+                🎤 Start Recording
+
+            </button>
+
+
+            <button id="stopBtn" onclick="stopRecording()" disabled>
+
+                ⏹ Stop Recording
+
+            </button>
+
+        </div>
+
+
+        <!-- ========================================= -->
+        <!-- USER SPEECH -->
+        <!-- ========================================= -->
+
+        <div class="section">
+
+            <h2>
+                🗣️ You Said
+            </h2>
+
+
+            <div id="youSaid" class="text-box">
+
+                Waiting for your voice...
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================================= -->
+        <!-- AI RESPONSE -->
+        <!-- ========================================= -->
+
+        <div class="section">
+
+            <h2>
+                🤖 Coop Sahayak Response
+            </h2>
+
+
+            <div id="botResponse" class="text-box">
+
+                Waiting for AI response...
+
+            </div>
+
+
+            <!-- ===================================== -->
+            <!-- SPEECH CONTROLS -->
+            <!-- ===================================== -->
+
+            <div class="voice-controls">
+
+                <button id="speakBtn" onclick="speakResponse()">
+
+                    🔊 Speak Response
+
+                </button>
+
+
+                <button id="stopSpeakBtn" onclick="stopSpeaking()">
+
+                    ⏹ Stop Speaking
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================================= -->
+        <!-- DEBUG RESPONSE -->
+        <!-- ========================================= -->
+
+        <div class="section">
+
+            <h2>
+                📡 Backend Response
+            </h2>
+
+
+            <pre id="backendResponse">
+
+Waiting...
+
+        </pre>
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+
+        // ============================================================
+        // CONFIGURATION
+        // ============================================================
+
+        const VOICE_API =
+            "http://localhost:5050/api/voice";
+
+
+        const CHAT_API =
+            "http://localhost:5050/api/chat";
+
+
+        const TTS_API =
+            "http://localhost:5050/api/tts";
+
+
+        // ============================================================
+        // GENERATE SESSION ID
+        // ============================================================
+
+        /*
+         * A NEW session ID is generated every time
+         * this page is loaded/refreshed.
+         */
+
+        const sessionId =
+            "voice-" +
+            crypto.randomUUID();
+
+
+        console.log(
+            "New voice session:",
+            sessionId
+        );
+
+
+        document.getElementById(
+            "sessionIdDisplay"
+        ).textContent =
+            sessionId;
+
+
+        // ============================================================
+        // GLOBAL VARIABLES
+        // ============================================================
+
+        let mediaRecorder = null;
+
+        let audioChunks = [];
+
+        let recordedMimeType = "";
+
+        let currentBotResponse = "";
+
+
+        // ============================================================
+        // ELEMENTS
+        // ============================================================
+
+        const startBtn =
+            document.getElementById(
+                "startBtn"
+            );
+
+
+        const stopBtn =
+            document.getElementById(
+                "stopBtn"
+            );
+
+
+        const statusBox =
+            document.getElementById(
+                "status"
+            );
+
+
+        const youSaid =
+            document.getElementById(
+                "youSaid"
+            );
+
+
+        const botResponse =
+            document.getElementById(
+                "botResponse"
+            );
+
+
+        const speakBtn =
+            document.getElementById(
+                "speakBtn"
+            );
+
+
+        const stopSpeakBtn =
+            document.getElementById(
+                "stopSpeakBtn"
+            );
+
+
+        const backendResponse =
+            document.getElementById(
+                "backendResponse"
+            );
+
+
+        // ============================================================
+        // STATUS
+        // ============================================================
+
+        function setStatus(
+            message,
+            type = ""
+        ) {
+
+            statusBox.textContent =
+                message;
+
+            statusBox.className =
+                "status " + type;
+
+        }
+
+
+        // ============================================================
+        // MIME TYPE
+        // ============================================================
+
+        function getSupportedMimeType() {
+
+            const types = [
+
+                "audio/webm;codecs=opus",
+
+                "audio/webm",
+
+                "audio/ogg;codecs=opus",
+
+                "audio/ogg"
+
+            ];
+
+
+            for (
+                const type of types
+            ) {
+
+                if (
+                    MediaRecorder.isTypeSupported(
+                        type
+                    )
+                ) {
+
+                    return type;
+
+                }
+
+            }
+
+
+            return "";
+
+        }
+
+
+        // ============================================================
+        // START RECORDING
+        // ============================================================
+
+        async function startRecording() {
+
+            try {
+
+                // ----------------------------------------
+                // STOP ANY PREVIOUS SPEECH
+                // ----------------------------------------
+
+                stopSpeaking();
+
+
+                // ----------------------------------------
+                // RESET
+                // ----------------------------------------
+
+                audioChunks = [];
+
+                currentBotResponse = "";
+
+
+                youSaid.textContent =
+                    "Recording...";
+
+
+                botResponse.textContent =
+                    "Waiting for AI response...";
+
+
+                backendResponse.textContent =
+                    "Waiting...";
+
+
+                speakBtn.style.display =
+                    "none";
+
+
+                stopSpeakBtn.style.display =
+                    "none";
+
+
+                // ----------------------------------------
+                // MICROPHONE
+                // ----------------------------------------
+
+                const stream =
+                    await navigator.mediaDevices
+                        .getUserMedia({
+
+                            audio: true
+
+                        });
+
+
+                // ----------------------------------------
+                // MIME TYPE
+                // ----------------------------------------
+
+                recordedMimeType =
+                    getSupportedMimeType();
+
+
+                // ----------------------------------------
+                // MEDIA RECORDER
+                // ----------------------------------------
+
+                if (
+                    recordedMimeType
+                ) {
+
+                    mediaRecorder =
+                        new MediaRecorder(
+                            stream,
+                            {
+                                mimeType:
+                                    recordedMimeType
+                            }
+                        );
+
+                }
+
+                else {
+
+                    mediaRecorder =
+                        new MediaRecorder(
+                            stream
+                        );
+
+                    recordedMimeType =
+                        mediaRecorder.mimeType ||
+                        "audio/webm";
+
+                }
+
+
+                console.log(
+                    "Selected MIME type:",
+                    recordedMimeType
+                );
+
+
+                // ----------------------------------------
+                // AUDIO CHUNKS
+                // ----------------------------------------
+
+                mediaRecorder.ondataavailable =
+                    function (event) {
+
+                        if (
+                            event.data &&
+                            event.data.size > 0
+                        ) {
+
+                            audioChunks.push(
+                                event.data
+                            );
+
+
+                            console.log(
+                                "Audio chunk:",
+                                event.data.size
+                            );
+
+                        }
+
+                    };
+
+
+                // ----------------------------------------
+                // STOP EVENT
+                // ----------------------------------------
+
+                mediaRecorder.onstop =
+                    async function () {
+
+                        console.log(
+                            "Recording stopped."
+                        );
+
+
+                        stream
+                            .getTracks()
+                            .forEach(
+                                track =>
+                                    track.stop()
+                            );
+
+
+                        await processRecording();
+
+                    };
+
+
+                // ----------------------------------------
+                // ERROR
+                // ----------------------------------------
+
+                mediaRecorder.onerror =
+                    function (event) {
+
+                        console.error(
+                            "MediaRecorder error:",
+                            event
+                        );
+
+                    };
+
+
+                // ----------------------------------------
+                // START
+                // ----------------------------------------
+
+                mediaRecorder.start(250);
+
+
+                startBtn.disabled =
+                    true;
+
+
+                stopBtn.disabled =
+                    false;
+
+
+                setStatus(
+                    "🔴 Recording... Speak now.",
+                    "recording"
+                );
+
+
+                console.log(
+                    "Recording started."
+                );
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "Microphone error:",
+                    error
+                );
+
+
+                setStatus(
+                    "❌ Microphone error: " +
+                    error.message,
+                    "error"
+                );
+
+
+                startBtn.disabled =
+                    false;
+
+
+                stopBtn.disabled =
+                    true;
+
+            }
+
+        }
+
+
+        // ============================================================
+        // STOP RECORDING
+        // ============================================================
+
+        function stopRecording() {
+
+            if (
+                !mediaRecorder
+            ) {
+
+                return;
+
+            }
+
+
+            if (
+                mediaRecorder.state ===
+                "recording"
+            ) {
+
+                mediaRecorder.stop();
+
+
+                startBtn.disabled =
+                    true;
+
+
+                stopBtn.disabled =
+                    true;
+
+
+                setStatus(
+                    "⏳ Processing your voice...",
+                    "processing"
+                );
+
+            }
+
+        }
+
+
+        // ============================================================
+        // PROCESS RECORDING
+        // ============================================================
+
+        async function processRecording() {
+
+            try {
+
+                // ----------------------------------------
+                // CHECK AUDIO
+                // ----------------------------------------
+
+                if (
+                    audioChunks.length === 0
+                ) {
+
+                    throw new Error(
+                        "No audio was recorded."
+                    );
+
+                }
+
+
+                // ----------------------------------------
+                // CREATE AUDIO BLOB
+                // ----------------------------------------
+
+                const audioBlob =
+                    new Blob(
+                        audioChunks,
+                        {
+                            type:
+                                recordedMimeType
+                        }
+                    );
+
+
+                console.log(
+                    "Final audio size:",
+                    audioBlob.size
+                );
+
+
+                console.log(
+                    "Final audio type:",
+                    audioBlob.type
+                );
+
+
+                if (
+                    audioBlob.size < 1000
+                ) {
+
+                    throw new Error(
+                        "Audio recording is too short."
+                    );
+
+                }
+
+
+                // ----------------------------------------
+                // CONVERT AUDIO TO DATA URL
+                // ----------------------------------------
+
+                const reader =
+                    new FileReader();
+
+
+                reader.onloadend =
+                    async function () {
+
+                        try {
+
+                            const dataUrl =
+                                reader.result;
+
+
+                            // =================================================
+                            // STEP 1
+                            // SPEECH → TEXT
+                            // =================================================
+
+                            console.log(
+                                "Sending audio to:",
+                                VOICE_API
+                            );
+
+
+                            const voiceResponse =
+                                await fetch(
+                                    VOICE_API,
+                                    {
+
+                                        method:
+                                            "POST",
+
+                                        headers: {
+
+                                            "Content-Type":
+                                                "application/json"
+
+                                        },
+
+                                        body:
+                                            JSON.stringify({
+
+                                                audio:
+                                                    dataUrl,
+
+                                                mimeType:
+                                                    recordedMimeType
+
+                                            })
+
+                                    }
+                                );
+
+
+                            const voiceData =
+                                await voiceResponse.json();
+
+
+                            console.log(
+                                "Voice backend response:",
+                                voiceData
+                            );
+
+
+                            if (
+                                !voiceResponse.ok ||
+                                !voiceData.success
+                            ) {
+
+                                throw new Error(
+                                    voiceData.error ||
+                                    voiceData.message ||
+                                    "Speech recognition failed."
+                                );
+
+                            }
+
+
+                            // ----------------------------------------
+                            // TRANSCRIPTION
+                            // ----------------------------------------
+
+                            const userText =
+                                String(
+                                    voiceData.text || ""
+                                ).trim();
+
+
+                            if (
+                                !userText
+                            ) {
+
+                                throw new Error(
+                                    "No speech was detected."
+                                );
+
+                            }
+
+
+                            youSaid.textContent =
+                                userText;
+
+
+                            setStatus(
+                                "🧠 Getting Coop Sahayak response...",
+                                "processing"
+                            );
+
+
+                            // =================================================
+                            // STEP 2
+                            // TEXT → AI
+                            // =================================================
+
+                            console.log(
+                                "Sending to chat API:"
+                            );
+
+
+                            console.log(
+                                "Session ID:",
+                                sessionId
+                            );
+
+
+                            console.log(
+                                "Message:",
+                                userText
+                            );
+
+
+                            const chatResponse =
+                                await fetch(
+                                    CHAT_API,
+                                    {
+
+                                        method:
+                                            "POST",
+
+                                        headers: {
+
+                                            "Content-Type":
+                                                "application/json"
+
+                                        },
+
+                                        body:
+                                            JSON.stringify({
+
+                                                message:
+                                                    userText,
+
+                                                sessionId:
+                                                    sessionId
+
+                                            })
+
+                                    }
+                                );
+
+
+                            console.log(
+                                "Chat HTTP status:",
+                                chatResponse.status
+                            );
+
+
+                            const chatData =
+                                await chatResponse.json();
+
+
+                            console.log(
+                                "Chat backend response:",
+                                chatData
+                            );
+
+
+                            // ----------------------------------------
+                            // DEBUG
+                            // ----------------------------------------
+
+                            backendResponse.textContent =
+                                JSON.stringify(
+                                    {
+
+                                        sessionId:
+                                            sessionId,
+
+                                        speechToText:
+                                            userText,
+
+                                        aiResponse:
+                                            chatData
+
+                                    },
+                                    null,
+                                    2
+                                );
+
+
+                            // ----------------------------------------
+                            // CHECK AI RESPONSE
+                            // ----------------------------------------
+
+                            if (
+                                !chatResponse.ok ||
+                                !chatData.success
+                            ) {
+
+                                throw new Error(
+                                    chatData.message ||
+                                    "AI response failed."
+                                );
+
+                            }
+
+
+                            // =================================================
+                            // STEP 3
+                            // GET ACTUAL COOP SAHAYAK RESPONSE
+                            // =================================================
+
+                            let responseText =
+                                chatData.response;
+
+
+                            /*
+                             * Some of your backend responses
+                             * may potentially use "message".
+                             */
+
+                            if (
+                                !responseText &&
+                                chatData.message
+                            ) {
+
+                                responseText =
+                                    chatData.message;
+
+                            }
+
+
+                            if (
+                                !responseText
+                            ) {
+
+                                responseText =
+                                    "Sorry, I could not generate a response.";
+
+                            }
+
+
+                            currentBotResponse =
+                                String(
+                                    responseText
+                                ).trim();
+
+
+                            // =================================================
+                            // STEP 4
+                            // DISPLAY ACTUAL AI RESPONSE
+                            // =================================================
+
+                            botResponse.textContent =
+                                currentBotResponse;
+
+
+                            speakBtn.style.display =
+                                "inline-block";
+
+
+                            // =================================================
+                            // STEP 5
+                            // SPEAK ACTUAL AI RESPONSE
+                            // =================================================
+
+                            setStatus(
+                                "✅ Response generated. Speaking...",
+                                "success"
+                            );
+
+
+                            speakResponse();
+
+
+                        }
+
+                        catch (error) {
+
+                            console.error(
+                                "Voice conversation error:",
+                                error
+                            );
+
+
+                            botResponse.textContent =
+                                "Unable to generate response.";
+
+
+                            setStatus(
+                                "❌ " + error.message,
+                                "error"
+                            );
+
+                        }
+
+
+                        finally {
+
+                            startBtn.disabled =
+                                false;
+
+                            stopBtn.disabled =
+                                true;
+
+                        }
+
+                    };
+
+
+                // ----------------------------------------
+                // START READER
+                // ----------------------------------------
+
+                reader.readAsDataURL(
+                    audioBlob
+                );
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "Recording processing error:",
+                    error
+                );
+
+
+                setStatus(
+                    "❌ " + error.message,
+                    "error"
+                );
+
+
+                startBtn.disabled =
+                    false;
+
+                stopBtn.disabled =
+                    true;
+
+            }
+
+        }
+        // ============================================================
+        // SARVAM TEXT TO SPEECH
+        // ============================================================
+
+        let currentAudio = null;
+
+
+        function detectLanguage(text) {
+
+            if (!text) {
+                return "en-IN";
+            }
+
+            // Tamil
+            if (/[\u0B80-\u0BFF]/.test(text)) {
+                return "ta-IN";
+            }
+
+            // Telugu
+            if (/[\u0C00-\u0C7F]/.test(text)) {
+                return "te-IN";
+            }
+
+            // Hindi / Devanagari
+            if (/[\u0900-\u097F]/.test(text)) {
+                return "hi-IN";
+            }
+
+            // English / default
+            return "en-IN";
+        }
+
+
+        // ============================================================
+        // STOP SARVAM AUDIO
+        // ============================================================
+
+        function stopSpeaking() {
+
+            if (currentAudio) {
+
+                try {
+                    currentAudio.pause();
+                    currentAudio.currentTime = 0;
+                }
+
+                catch (error) {
+                    console.warn(
+                        "Could not stop audio:",
+                        error
+                    );
+                }
+
+                currentAudio = null;
+            }
+
+            speakBtn.style.display = "inline-block";
+            stopSpeakBtn.style.display = "none";
+        }
+
+
+        // ============================================================
+        // SPEAK AI RESPONSE USING SARVAM
+        // ============================================================
+
+        async function speakResponse() {
+
+            if (
+                !currentBotResponse ||
+                !currentBotResponse.trim()
+            ) {
+
+                console.warn(
+                    "No AI response to speak."
+                );
+
+                return;
+            }
+
+
+            try {
+
+                // Stop any previous Sarvam audio.
+                stopSpeaking();
+
+
+                const language =
+                    detectLanguage(
+                        currentBotResponse
+                    );
+
+
+                console.log(
+                    "\n===== SARVAM TTS REQUEST ====="
+                );
+
+                console.log(
+                    "TTS API:",
+                    TTS_API
+                );
+
+                console.log(
+                    "Language:",
+                    language
+                );
+
+                console.log(
+                    "Text:",
+                    currentBotResponse
+                );
+
+
+                setStatus(
+                    "🔊 Generating speech...",
+                    "processing"
+                );
+
+
+                speakBtn.style.display = "none";
+                stopSpeakBtn.style.display = "inline-block";
+
+
+                // Send ONLY the AI response to Sarvam.
+                const ttsResponse =
+                    await fetch(
+                        TTS_API,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify({
+                                    text:
+                                        currentBotResponse,
+                                    language:
+                                        language
+                                })
+                        }
+                    );
+
+
+                console.log(
+                    "TTS HTTP status:",
+                    ttsResponse.status
+                );
+
+
+                const ttsData =
+                    await ttsResponse.json();
+
+
+                console.log(
+                    "TTS backend response:",
+                    ttsData
+                );
+
+
+                if (
+                    !ttsResponse.ok ||
+                    !ttsData.success
+                ) {
+
+                    throw new Error(
+                        ttsData.error ||
+                        ttsData.message ||
+                        "TTS generation failed."
+                    );
+                }
+
+
+                if (!ttsData.audio) {
+
+                    throw new Error(
+                        "TTS backend returned no audio."
+                    );
+                }
+
+
+                // Sarvam may return either raw base64
+                // or an already-created data URL.
+                let audioSource =
+                    String(ttsData.audio);
+
+
+                if (
+                    !audioSource.startsWith("data:")
+                ) {
+
+                    const mimeType =
+                        ttsData.audioMimeType ||
+                        "audio/wav";
+
+
+                    audioSource =
+                        "data:" +
+                        mimeType +
+                        ";base64," +
+                        audioSource;
+                }
+
+
+                console.log(
+                    "Sarvam audio received."
+                );
+
+                console.log(
+                    "Audio MIME:",
+                    ttsData.audioMimeType ||
+                    "audio/wav"
+                );
+
+                console.log(
+                    "Audio length:",
+                    ttsData.audio.length
+                );
+
+
+                // Create a real HTML Audio element.
+                // This does NOT use browser speech synthesis.
+                currentAudio =
+                    new Audio(
+                        audioSource
+                    );
+
+
+                currentAudio.preload =
+                    "auto";
+
+
+                currentAudio.onplay =
+                    function () {
+
+                        console.log(
+                            "🔊 Sarvam voice started."
+                        );
+
+                        setStatus(
+                            "🔊 Coop Sahayak is speaking...",
+                            "success"
+                        );
+
+                        speakBtn.style.display =
+                            "none";
+
+                        stopSpeakBtn.style.display =
+                            "inline-block";
+                    };
+
+
+                currentAudio.onended =
+                    function () {
+
+                        console.log(
+                            "✅ Sarvam voice finished."
+                        );
+
+                        setStatus(
+                            "✅ Voice conversation completed.",
+                            "success"
+                        );
+
+                        speakBtn.style.display =
+                            "inline-block";
+
+                        stopSpeakBtn.style.display =
+                            "none";
+
+                        currentAudio =
+                            null;
+                    };
+
+
+                currentAudio.onerror =
+                    function (event) {
+
+                        console.error(
+                            "Sarvam audio playback error:",
+                            event
+                        );
+
+                        setStatus(
+                            "❌ Could not play Sarvam speech.",
+                            "error"
+                        );
+
+                        speakBtn.style.display =
+                            "inline-block";
+
+                        stopSpeakBtn.style.display =
+                            "none";
+
+                        currentAudio =
+                            null;
+                    };
+
+
+                await currentAudio.play();
+
+
+                console.log(
+                    "🔊 Sarvam audio playback started."
+                );
+
+                console.log(
+                    "===============================\n"
+                );
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "===== SARVAM TTS ERROR ====="
+                );
+
+                console.error(error);
+
+                console.error(
+                    "============================"
+                );
+
+
+                speakBtn.style.display =
+                    "inline-block";
+
+                stopSpeakBtn.style.display =
+                    "none";
+
+
+                setStatus(
+                    "❌ TTS failed: " +
+                    error.message,
+                    "error"
+                );
+            }
+        }
+
+
+        // ============================================================
+        // STOP SPEAKING
+        // ============================================================
+
+        // The function above stops the current Sarvam audio.
+
+
+        // ============================================================
+        // PAGE LOAD
+        // ============================================================
+
+
+        console.log(
+            "=========================================="
+        );
+
+        console.log(
+            "🎤 COOP SAHAYAK VOICE TEST"
+        );
+
+        console.log(
+            "=========================================="
+        );
+
+        console.log(
+            "Session ID:",
+            sessionId
+        );
+
+        console.log(
+            "Voice API:",
+            VOICE_API
+        );
+
+        console.log(
+            "Chat API:",
+            CHAT_API
+        );
+
+        console.log(
+            "TTS API:",
+            TTS_API
+        );
+
+        console.log(
+            "=========================================="
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
